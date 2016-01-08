@@ -14,12 +14,15 @@ class FirstActivity : AppCompatActivity() {
     var button1: Button? = null
     var button2: Button? = null
 
+    var showList:Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
         button1 = findViewById(R.id.button1) as Button
         button2 = findViewById(R.id.button2) as Button
+        showList = findViewById(R.id.showList) as Button?
 
         button1?.setOnClickListener(View.OnClickListener {
             val intent: Intent = Intent(this, SecondActivity::class.java)
@@ -28,6 +31,11 @@ class FirstActivity : AppCompatActivity() {
 
         button2?.setOnClickListener(View.OnClickListener {
             this.finish()
+        })
+
+        showList?.setOnClickListener(View.OnClickListener {
+
+            startActivity(Intent(this,ShowListActivity::class.java))
         })
     }
 

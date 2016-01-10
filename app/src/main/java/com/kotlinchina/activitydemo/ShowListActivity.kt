@@ -36,7 +36,7 @@ class ShowListActivity : Activity() {
         super.onCreate(savedInstanceState)
         super.setContentView(R.layout.activity_show_list)
 
-        listview = findViewById(R.id.listview) as ListView?
+        listview = findViewById(R.id.listview) as? ListView
 
         data.initData()
         adapter = ShowListAdapter(data,this)

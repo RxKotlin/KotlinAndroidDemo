@@ -28,21 +28,6 @@ class ShowListAdapter(var list:ArrayList<String>,val context: Context): BaseAdap
         holder.name?.text = list[position]
         showListItemView.tag = holder
 
-
-//        var holder: ViewHolder? = null
-//        var showListItemView: View
-//        if(convertView == null){
-//
-//            showListItemView = View.inflate(context,R.layout.show_list_item,null)
-//            holder = ViewHolder() ;
-//            holder.name = v.findViewById(R.id.item_tv) as TextView?
-//
-//            showListItemView.tag = holder
-//        }else{
-//            showListItemView = convertView
-//            holder = showListItemView.tag as ViewHolder
-//        }
-
         holder.name?.text = list[position]
 
         return showListItemView

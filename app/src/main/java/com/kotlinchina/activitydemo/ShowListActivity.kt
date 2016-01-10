@@ -2,7 +2,6 @@ package com.kotlinchina.activitydemo
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import com.kotlinchina.activitydemo.adapter.ShowListAdapter
@@ -14,7 +13,6 @@ import java.util.*
 class ShowListActivity : Activity() {
 
     var listview: ListView?=null
-
 
     fun ArrayList<String>.initData(){
 
@@ -31,11 +29,8 @@ class ShowListActivity : Activity() {
         this.add(name4)
     }
 
-
     private var data = ArrayList<String>()
     private var adapter: ShowListAdapter?=null
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +38,8 @@ class ShowListActivity : Activity() {
 
         listview = findViewById(R.id.listview) as ListView?
 
-
         data.initData()
-        adapter = ShowListAdapter(data,this) ;
+        adapter = ShowListAdapter(data,this)
 
         listview?.adapter = adapter
 

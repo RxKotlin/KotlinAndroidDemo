@@ -13,32 +13,39 @@ import java.util.*
  */
 class ShowListAdapter(var list:ArrayList<String>,val context: Context): BaseAdapter() {
 
-
-
     override fun getCount(): Int {
         return list.size
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
-
-
-        var holder: ViewHolder
-        var v: View
-        if(null == convertView){
-
-            v = View.inflate(context,R.layout.show_list_item,null)
-            holder = ViewHolder() ;
-            holder.name = v.findViewById(R.id.item_tv) as TextView?
-
-            v.tag = holder
-        }else{
-            v = convertView
-            holder = v.tag as ViewHolder
+        if(convertView != null){
+            return convertView
         }
+
+        val showListItemView = View.inflate(context, R.layout.show_list_item, null)
+        val holder: ViewHolder = ViewHolder()
+        holder.name = showListItemView.findViewById(R.id.item_tv) as TextView?
+        holder.name?.text = list[position]
+        showListItemView.tag = holder
+
+
+//        var holder: ViewHolder? = null
+//        var showListItemView: View
+//        if(convertView == null){
+//
+//            showListItemView = View.inflate(context,R.layout.show_list_item,null)
+//            holder = ViewHolder() ;
+//            holder.name = v.findViewById(R.id.item_tv) as TextView?
+//
+//            showListItemView.tag = holder
+//        }else{
+//            showListItemView = convertView
+//            holder = showListItemView.tag as ViewHolder
+//        }
 
         holder.name?.text = list[position]
 
-        return v
+        return showListItemView
     }
 
     override fun getItem(position: Int): Any? {
